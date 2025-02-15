@@ -4,13 +4,13 @@ A modern, responsive, and customizable developer portfolio built with React, Typ
 
 ![Portfolio Preview](https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200)
 
-[![GitHub license](https://img.shields.io/github/license/eshanized/developer-portfolio)](https://github.com/eshanized/developer-portfolio/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/eshanized/developer-portfolio)](https://github.com/eshanized/developer-portfolio/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/eshanized/developer-portfolio)](https://github.com/eshanized/developer-portfolio/issues)
-[![GitHub forks](https://img.shields.io/github/forks/eshanized/developer-portfolio)](https://github.com/eshanized/developer-portfolio/network)
-[![GitHub last commit](https://img.shields.io/github/last-commit/eshanized/developer-portfolio)](https://github.com/eshanized/developer-portfolio/commits/main)
-[![GitLab Pipeline Status](https://gitlab.com/eshanized/developer-portfolio/badges/main/pipeline.svg)](https://gitlab.com/eshanized/developer-portfolio/-/pipelines)
-[![GitLab Version](https://img.shields.io/gitlab/v/tag/eshanized/developer-portfolio?sort=date)](https://gitlab.com/eshanized/developer-portfolio/-/releases)
+[![GitHub license](https://img.shields.io/github/license/eshanized/developer)](https://github.com/eshanized/developer-portfolio/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/eshanized/developer)](https://github.com/eshanized/developer-portfolio/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/eshanized/developer)](https://github.com/eshanized/developer-portfolio/issues)
+[![GitHub forks](https://img.shields.io/github/forks/eshanized/developer)](https://github.com/eshanized/developer-portfolio/network)
+[![GitHub last commit](https://img.shields.io/github/last-commit/eshanized/developer)](https://github.com/eshanized/developer-portfolio/commits/main)
+[![GitLab Pipeline Status](https://gitlab.com/eshanized/developer/badges/main/pipeline.svg)](https://gitlab.com/eshanized/developer-portfolio/-/pipelines)
+[![GitLab Version](https://img.shields.io/gitlab/v/tag/eshanized/developer?sort=date)](https://gitlab.com/eshanized/developer-portfolio/-/releases)
 
 ## Author
 
