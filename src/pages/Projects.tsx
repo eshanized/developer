@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { AlertCircle, Search, Filter, SortAsc, SortDesc, Code2 } from 'lucide-react';
-import SectionTitle from '../components/SectionTitle';
-import ProjectCard from '../components/ProjectCard';
-import { useProjects } from '../hooks/useProjects';
+import React, { useState, useEffect } from "react";
+import {
+  AlertCircle,
+  Search,
+  Filter,
+  SortAsc,
+  SortDesc,
+  Code2,
+} from "lucide-react";
+import SectionTitle from "../components/SectionTitle";
+import ProjectCard from "../components/ProjectCard";
+import { useProjects } from "../hooks/useProjects";
 
 interface FilterState {
   search: string;
   language: string;
-  sortBy: 'stars' | 'forks' | 'updated' | 'created';
-  sortOrder: 'asc' | 'desc';
+  sortBy: "stars" | "forks" | "updated" | "created";
+  sortOrder: "asc" | "desc";
 }
 
 const Projects = () => {
@@ -16,15 +23,17 @@ const Projects = () => {
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [languages, setLanguages] = useState<string[]>([]);
   const [filters, setFilters] = useState<FilterState>({
-    search: '',
-    language: '',
-    sortBy: 'updated',
-    sortOrder: 'desc'
+    search: "",
+    language: "",
+    sortBy: "updated",
+    sortOrder: "desc",
   });
 
   useEffect(() => {
     if (allProjects.length > 0) {
-      const uniqueLanguages = Array.from(new Set(allProjects.map(p => p.language).filter(Boolean)));
+      const uniqueLanguages = Array.from(
+        new Set(allProjects.map((p) => p.language).filter(Boolean)),
+      );
       setLanguages(uniqueLanguages.sort());
     }
   }, [allProjects]);
@@ -34,33 +43,39 @@ const Projects = () => {
 
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();
-      result = result.filter(project => 
-        project.name.toLowerCase().includes(searchLower) ||
-        (project.description && project.description.toLowerCase().includes(searchLower))
+      result = result.filter(
+        (project) =>
+          project.name.toLowerCase().includes(searchLower) ||
+          (project.description &&
+            project.description.toLowerCase().includes(searchLower)),
       );
     }
 
     if (filters.language) {
-      result = result.filter(project => project.language === filters.language);
+      result = result.filter(
+        (project) => project.language === filters.language,
+      );
     }
 
     result.sort((a, b) => {
       let comparison = 0;
       switch (filters.sortBy) {
-        case 'stars':
+        case "stars":
           comparison = b.stargazers_count - a.stargazers_count;
           break;
-        case 'forks':
+        case "forks":
           comparison = b.forks_count - a.forks_count;
           break;
-        case 'updated':
-          comparison = new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+        case "updated":
+          comparison =
+            new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
           break;
-        case 'created':
-          comparison = new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        case "created":
+          comparison =
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
           break;
       }
-      return filters.sortOrder === 'desc' ? comparison : -comparison;
+      return filters.sortOrder === "desc" ? comparison : -comparison;
     });
 
     setFilteredProjects(result);
@@ -95,7 +110,7 @@ const Projects = () => {
             <span>{filteredProjects.length} projects</span>
           </div>
         </div>
-        
+
         {fetchError && (
           <div className="mb-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg flex items-center space-x-2">
             <AlertCircle className="h-5 w-5 text-amber-500 dark:text-amber-400" />
@@ -114,7 +129,9 @@ const Projects = () => {
                 placeholder="Search projects..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800 focus:border-indigo-300 dark:focus:border-indigo-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                 value={filters.search}
-                onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, search: e.target.value }))
+                }
               />
             </div>
 
@@ -124,11 +141,15 @@ const Projects = () => {
               <select
                 className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-800 focus:border-purple-300 dark:focus:border-purple-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 appearance-none"
                 value={filters.language}
-                onChange={(e) => setFilters(prev => ({ ...prev, language: e.target.value }))}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, language: e.target.value }))
+                }
               >
                 <option value="">All Languages</option>
-                {languages.map(lang => (
-                  <option key={lang} value={lang}>{lang}</option>
+                {languages.map((lang) => (
+                  <option key={lang} value={lang}>
+                    {lang}
+                  </option>
                 ))}
               </select>
             </div>
@@ -139,7 +160,12 @@ const Projects = () => {
               <select
                 className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-200 dark:focus:ring-green-800 focus:border-green-300 dark:focus:border-green-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 appearance-none"
                 value={filters.sortBy}
-                onChange={(e) => setFilters(prev => ({ ...prev, sortBy: e.target.value as FilterState['sortBy'] }))}
+                onChange={(e) =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    sortBy: e.target.value as FilterState["sortBy"],
+                  }))
+                }
               >
                 <option value="updated">Last Updated</option>
                 <option value="created">Created Date</option>
@@ -151,17 +177,21 @@ const Projects = () => {
             {/* Sort Order */}
             <button
               className="flex items-center justify-center space-x-2 px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 group transition-colors"
-              onClick={() => setFilters(prev => ({ 
-                ...prev, 
-                sortOrder: prev.sortOrder === 'desc' ? 'asc' : 'desc' 
-              }))}
+              onClick={() =>
+                setFilters((prev) => ({
+                  ...prev,
+                  sortOrder: prev.sortOrder === "desc" ? "asc" : "desc",
+                }))
+              }
             >
-              {filters.sortOrder === 'desc' ? (
+              {filters.sortOrder === "desc" ? (
                 <SortDesc className="h-4 w-4 text-rose-500 dark:text-rose-400 group-hover:text-rose-600 dark:group-hover:text-rose-300" />
               ) : (
                 <SortAsc className="h-4 w-4 text-rose-500 dark:text-rose-400 group-hover:text-rose-600 dark:group-hover:text-rose-300" />
               )}
-              <span>{filters.sortOrder === 'desc' ? 'Descending' : 'Ascending'}</span>
+              <span>
+                {filters.sortOrder === "desc" ? "Descending" : "Ascending"}
+              </span>
             </button>
           </div>
         </div>
@@ -173,19 +203,23 @@ const Projects = () => {
               <ProjectCard
                 key={project.id}
                 title={project.name}
-                description={project.description || 'No description available'}
-                language={project.language || 'N/A'}
+                description={project.description || "No description available"}
+                language={project.language || "N/A"}
                 stars={project.stargazers_count}
                 forks={project.forks_count}
                 url={project.html_url}
-                source={project.html_url.includes('github') ? 'github' : 'gitlab'}
+                source={
+                  project.html_url.includes("github") ? "github" : "gitlab"
+                }
                 createdAt={project.created_at}
                 updatedAt={project.updated_at}
               />
             ))
           ) : (
             <div className="col-span-full text-center py-12 bg-white dark:bg-gray-800 rounded-lg">
-              <p className="text-gray-500 dark:text-gray-400">No projects found matching your criteria</p>
+              <p className="text-gray-500 dark:text-gray-400">
+                No projects found matching your criteria
+              </p>
             </div>
           )}
         </div>

@@ -1,5 +1,13 @@
-import React from 'react';
-import { Star, GitFork, Calendar, GitBranch, ExternalLink, Github, Gitlab } from 'lucide-react';
+import React from "react";
+import {
+  Star,
+  GitFork,
+  Calendar,
+  GitBranch,
+  ExternalLink,
+  Github,
+  Gitlab,
+} from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -8,45 +16,45 @@ interface ProjectCardProps {
   stars: number;
   forks: number;
   url: string;
-  source: 'github' | 'gitlab';
+  source: "github" | "gitlab";
   createdAt: string;
   updatedAt: string;
 }
 
-const ProjectCard = ({ 
-  title, 
-  description, 
-  language, 
-  stars, 
-  forks, 
-  url, 
+const ProjectCard = ({
+  title,
+  description,
+  language,
+  stars,
+  forks,
+  url,
   source,
   createdAt,
-  updatedAt 
+  updatedAt,
 }: ProjectCardProps) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
   const getLanguageColor = (lang: string) => {
     const colors: { [key: string]: string } = {
-      'JavaScript': 'bg-yellow-400',
-      'TypeScript': 'bg-blue-500',
-      'Python': 'bg-green-500',
-      'Java': 'bg-red-500',
-      'C++': 'bg-purple-500',
-      'Ruby': 'bg-red-600',
-      'Go': 'bg-cyan-500',
-      'Rust': 'bg-orange-500',
-      'PHP': 'bg-indigo-500',
-      'Swift': 'bg-pink-500'
+      JavaScript: "bg-yellow-400",
+      TypeScript: "bg-blue-500",
+      Python: "bg-green-500",
+      Java: "bg-red-500",
+      "C++": "bg-purple-500",
+      Ruby: "bg-red-600",
+      Go: "bg-cyan-500",
+      Rust: "bg-orange-500",
+      PHP: "bg-indigo-500",
+      Swift: "bg-pink-500",
     };
-    return colors[lang] || 'bg-gray-400';
+    return colors[lang] || "bg-gray-400";
   };
 
   return (
@@ -57,7 +65,7 @@ const ProjectCard = ({
       <div className="relative p-6 flex flex-col h-full">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center space-x-2">
-            {source === 'github' ? (
+            {source === "github" ? (
               <Github className="h-5 w-5 text-gray-700 dark:text-gray-300" />
             ) : (
               <Gitlab className="h-5 w-5 text-gray-700 dark:text-gray-300" />
@@ -76,13 +84,19 @@ const ProjectCard = ({
           </a>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow line-clamp-2">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow line-clamp-2">
+          {description}
+        </p>
 
         <div className="space-y-4 mt-auto">
           <div className="flex items-center flex-wrap gap-3">
             <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-700 px-3 py-1 rounded-full">
-              <div className={`w-2.5 h-2.5 rounded-full ${getLanguageColor(language)}`} />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-200">{language}</span>
+              <div
+                className={`w-2.5 h-2.5 rounded-full ${getLanguageColor(language)}`}
+              />
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                {language}
+              </span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="flex items-center space-x-1 text-gray-600 dark:text-gray-300">

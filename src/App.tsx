@@ -1,15 +1,15 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Articles from './pages/Articles';
-import Contact from './pages/Contact';
-import NotFound from './pages/NotFound';
-import SEOHead from './components/SEOHead';
+import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Articles from "./pages/Articles";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+import SEOHead from "./components/SEOHead";
 
 function App() {
   return (

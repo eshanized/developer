@@ -15,6 +15,7 @@ A modern, responsive, and customizable developer portfolio built with React, Typ
 ## Author
 
 **Eshan Roy**
+
 - GitHub: [@eshanized](https://github.com/eshanized)
 - GitLab: [@eshanized](https://gitlab.com/eshanized)
 - Email: eshan@snigdhaos.org
@@ -57,19 +58,19 @@ export const developerInfo = {
   email: "your@email.com",
   location: "Your Location",
   bio: "Your bio",
-  
+
   profileImage: {
     source: "github", // 'github' | 'gitlab' | 'custom'
     customUrl: "", // Only used when source is 'custom'
   },
-  
+
   social: {
     github: "yourusername",
     gitlab: "yourusername",
     devto: "yourusername",
     medium: "@yourusername",
     linkedin: "yourusername",
-    twitter: "yourusername"
+    twitter: "yourusername",
   },
 
   skills: [
@@ -81,8 +82,8 @@ export const developerInfo = {
       company: "Company Name",
       position: "Your Position",
       period: "2020 - Present",
-      description: "Your role description"
-    }
+      description: "Your role description",
+    },
   ],
 
   education: [
@@ -90,23 +91,23 @@ export const developerInfo = {
       institution: "University Name",
       degree: "Your Degree",
       year: "Graduation Year",
-      description: "Description"
-    }
+      description: "Description",
+    },
   ],
 
   achievements: [
     {
       title: "Achievement Title",
       description: "Achievement description",
-      icon: "award"
-    }
+      icon: "award",
+    },
   ],
 
   emailjs: {
     serviceId: "YOUR_SERVICE_ID",
     templateId: "YOUR_TEMPLATE_ID",
-    publicKey: "YOUR_PUBLIC_KEY"
-  }
+    publicKey: "YOUR_PUBLIC_KEY",
+  },
 };
 ```
 
@@ -116,16 +117,16 @@ The project uses Tailwind CSS for styling. You can customize the theme by editin
 
 ```javascript
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Your Font', 'sans-serif'],
+        sans: ["Your Font", "sans-serif"],
       },
       colors: {
-        primary: '#your-color',
-        secondary: '#your-color',
+        primary: "#your-color",
+        secondary: "#your-color",
       },
     },
   },
@@ -165,6 +166,7 @@ To enable the contact form:
 ### API Integration
 
 The portfolio automatically fetches:
+
 - Your GitHub repositories
 - Your GitLab repositories
 - Your Dev.to articles
@@ -186,6 +188,7 @@ Make sure to update your usernames in `src/info.ts`.
      - The included workflow will handle the rest
 
 The deployment workflow will:
+
 1. Build your project
 2. Deploy to GitHub Pages
 3. Make your site available at `https://yourusername.github.io/repository-name`
@@ -195,14 +198,16 @@ The deployment workflow will:
 If you prefer manual deployment:
 
 1. Update `vite.config.ts`:
+
    ```typescript
    export default defineConfig({
-     base: '/your-repo-name/',
+     base: "/your-repo-name/",
      // ... other config
    });
    ```
 
 2. Build the project:
+
    ```bash
    npm run build
    ```
@@ -225,6 +230,7 @@ If you prefer manual deployment:
 #### GitLab CI/CD Configuration
 
 The included `.gitlab-ci.yml` handles:
+
 - Node.js setup
 - Dependency installation
 - Building the project
@@ -235,6 +241,7 @@ No additional configuration is needed - just push your code and GitLab CI will h
 #### Troubleshooting GitLab Pages
 
 If your deployment fails:
+
 1. Check the CI/CD pipeline logs
 2. Ensure the repository visibility is public or internal
 3. Verify GitLab Pages is enabled in your project settings
@@ -245,6 +252,7 @@ If your deployment fails:
 For both platforms, if you're using environment variables:
 
 1. Add them to the platform's secrets:
+
    - GitHub: Repository Settings → Secrets and Variables → Actions
    - GitLab: Settings → CI/CD → Variables
 
@@ -259,6 +267,7 @@ For both platforms, if you're using environment variables:
 To use a custom domain:
 
 #### GitHub Pages
+
 1. Go to repository settings
 2. Navigate to "Pages"
 3. Under "Custom domain":
@@ -269,6 +278,7 @@ To use a custom domain:
    - CNAME record if using a subdomain
 
 #### GitLab Pages
+
 1. Go to project settings
 2. Navigate to "Pages"
 3. Add your custom domain

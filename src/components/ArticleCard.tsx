@@ -1,5 +1,5 @@
-import React from 'react';
-import { Calendar } from 'lucide-react';
+import React from "react";
+import { Calendar } from "lucide-react";
 
 interface ArticleCardProps {
   title: string;
@@ -7,10 +7,17 @@ interface ArticleCardProps {
   date: string;
   readTime: string;
   url: string;
-  source: 'devto' | 'medium';
+  source: "devto" | "medium";
 }
 
-const ArticleCard = ({ title, description, date, readTime, url, source }: ArticleCardProps) => {
+const ArticleCard = ({
+  title,
+  description,
+  date,
+  readTime,
+  url,
+  source,
+}: ArticleCardProps) => {
   return (
     <div className="card hover:shadow-lg transition-shadow">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
@@ -29,7 +36,7 @@ const ArticleCard = ({ title, description, date, readTime, url, source }: Articl
           rel="noopener noreferrer"
           className="text-sm text-gray-600 hover:text-black"
         >
-          Read on {source === 'devto' ? 'Dev.to' : 'Medium'} →
+          Read on {source === "devto" ? "Dev.to" : "Medium"} →
         </a>
       </div>
     </div>
